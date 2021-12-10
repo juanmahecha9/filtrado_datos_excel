@@ -25,9 +25,16 @@ def index():
     return render_template('index.html')
 
 # Ruta pra filtro por fecha
-@app.route('/filter_date/<file_name>/<date>/<month>/<year>/<file_out_name>', methods=['GET'])
-def filter_date(file_name:None, file_out_name:None, date:None, month:None, year:None):
-
+@app.route('/filter_date/<params>', methods=['GET'])
+def filter_date(params):
+    #file_name:None, file_out_name:None, date:None, month:None, year:None
+    text = params.split(";")
+    file_name = text[0]
+    file_out_name = text[1]
+    date = text[2]
+    month = text[3]
+    year = text[4]
+    
     path_in = "/Users/juanmaheha/Desktop/excel_filter/doc/"+file_name+".xlsx"
     path_out = "/Users/juanmaheha/Desktop/excel_filter/doc/"+file_out_name+".xlsx"
     filter =  str(year)+ "-" + str(month) + "-" + str(date)

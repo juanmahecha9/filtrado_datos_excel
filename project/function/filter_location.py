@@ -23,7 +23,7 @@ def filter_location(path_in,file_name, path_out):
            # Filas y columnas para evaluar si hay o no informacion filtrada
            (row,col) = df1.shape
            if(row < 2):
-              state.append({"local": "No hay datos relacionado con: "+local})
+                state.append({"local": "No hay datos relacionado con: "+local})
            if(row >1):
                 df1.to_excel(path_out+local+".xlsx", header = True, index= True)
                 state.append({"local": "Filtrados por: "+local})
@@ -38,5 +38,4 @@ def filter_location(path_in,file_name, path_out):
             if(row >1):
                 df1.to_excel(path_out+local+".xlsx", header = True, index= True)
                 state.append({"local": "Filtrados por: "+local})
-
     return state
