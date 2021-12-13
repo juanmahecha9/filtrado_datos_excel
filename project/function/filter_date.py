@@ -12,6 +12,7 @@ def date_filter_file(file_path_in,file_path_out, date_filter):
     #Aplicacion de un filtro
     df1 = df[df["DATA DE ADMISSÃO"] == date_filter]
     print(df1)
+    df1.append({"SOLICITAÇÃO DE DNA": "Bot agent 6"}, ignore_index=True)
 
     #Exportar el dataframe
     df1.to_excel(file_path_out, header = True, index= True)
